@@ -104,9 +104,11 @@ This project is for educational and experimental purposes only. Lottery outcomes
 ## License
 This project is open-source under the **MIT License**. Contributions are welcome!
 
-Blog post
+## Blog post
 https://www.webdeveloper.today/2025/03/building-euromillions-prediction-model.html
 [Building EuroMillion Prediction Model](https://www.webdeveloper.today/2025/03/building-euromillions-prediction-model.html)
 
+## Apache Spark examples 
+https://github.com/apache/spark/tree/master/examples/src/main/
 
 
