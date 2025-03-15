@@ -22,6 +22,9 @@ schema = StructType([
 # Load all CSV files
 df = spark.read.csv(data_path, header=True, sep=";", schema=schema)
 
+# Opslaan als Parquet
+df.write.mode("overwrite").parquet("data/euromillions.parquet")
+
 # Show sample data
 df.show(10)
 
