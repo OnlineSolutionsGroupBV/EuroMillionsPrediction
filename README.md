@@ -7,7 +7,7 @@ It's exciting to spend a Saturday studying different technologies and prediction
 
 Regarding Python, which of these examples would be the most suitable for calculating and predicting a EuroMillions winning combination, where 5 numbers are selected from 1 to 50 and 2 lucky stars from 1 to 12? 
 
-# EuroMillions Prediction Using Apache Spark
+# EuroMillion Prediction Using Apache Spark
 
 ## Overview
 This project aims to predict potential EuroMillions winning number combinations using Apache Spark's Machine Learning (ML) capabilities. The EuroMillions lottery consists of selecting 5 numbers from 1 to 50 and 2 lucky stars from 1 to 12. While the lottery is inherently random, this project attempts to identify patterns and trends using historical data and machine learning models.
