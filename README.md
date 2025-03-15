@@ -109,6 +109,6 @@ https://www.webdeveloper.today/2025/03/building-euromillions-prediction-model.ht
 [Building EuroMillion Prediction Model](https://www.webdeveloper.today/2025/03/building-euromillions-prediction-model.html)
 
 ## Apache Spark examples 
-https://github.com/apache/spark/tree/master/examples/src/main/
+https://github.com/apache/spark/tree/master/examples/src/main/python
 
 
