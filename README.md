@@ -48,16 +48,44 @@ This project aims to predict potential EuroMillions winning number combinations 
 4. Run the data preprocessing scripts:
    ```sh
    spark-submit load_data.py # Read the CSV File in PySpark
-    
-   
+   spark-submit prepare_data.py
    ```
 
-## Running the Prediction Model
-To train and test the model, execute:
+**train_model.py (Train Multi-Output Random Forest Model)**  
+
+**Objective:**  
+- Train 7 separate models (one for each digit).  
+- Save all trained models.
+  
 ```sh
-spark-submit predict_numbers.py
+spark-submit train_model.py
+```
+
+## Running the Prediction Model
+
+```sh
+spark-submit predict.py
 ```
 This will train the ML model and generate predictions.
+
+**What’s Happening?**  
+The model is relying too much on the input values, causing its predictions to closely resemble the input. This could be due to overfitting or the model struggling to identify meaningful patterns in the historical lottery data.  
+
+### 🎯 What We Want  
+Instead of generating predictions that mirror the input, we want the model to independently produce a full prediction without being influenced by a predefined draw sequence.  
+
+### ✅ Solution: Predict Fully Random Numbers  
+Rather than using an existing draw as input, we can have the model generate predictions without any input.  
+
+### 🔹 Our Approach:  
+- Provide an empty input (zero values) and ask the model to generate a completely new set of numbers.  
+- This prevents the model from simply copying the input.  
+- The model will rely on underlying patterns in the dataset to create a more realistic combination.
+
+... 
+🎰 Voorspelde EuroMillions Nummers:
+🔢 Nummers: 4, 10, 13, 23, 43
+⭐ Sterren: 5, 9
 
 ## Example ML Models Used
 - **Logistic Regression**: Used for binary classification of number occurrences.
