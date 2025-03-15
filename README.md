@@ -37,25 +37,12 @@ This project aims to predict potential EuroMillions winning number combinations 
 3. Ensure Spark is installed and configured correctly:
    ```sh
     pyspark
+..
+      version 3.5.5
+..
 
-Type "help", "copyright", "credits" or "license" for more information.
-Setting default log level to "WARN".
-To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-25/03/15 12:52:56 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-Welcome to
-      ____              __
-     / __/__  ___ _____/ /__
-    _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 3.5.5
-      /_/
+```
 
-Using Python version 3.9.6 (default, Feb  3 2024 15:58:28)
-Spark context Web UI available at http://mbp-van-sergej:4040
-Spark context available as 'sc' (master = local[*], app id = local-1742039577457).
-SparkSession available as 'spark'.
-
-
-    ```
    If Spark is not installed, refer to [Apache Spark's installation guide](https://spark.apache.org/docs/latest/) for setup instructions.
 
 ## Data Preparation
