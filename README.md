@@ -43,10 +43,13 @@ This project aims to predict potential EuroMillions winning number combinations 
 
 ## Data Preparation
 1. Obtain historical EuroMillions draw results from an official source or dataset.
-2. Save the dataset in a CSV file (`data/euromillions_history.csv`).
-3. Run the data preprocessing script:
+2. Save the dataset in a CSV file (`EuroMillionsData/euromillions-gamedata-NL-****.csv`).
+3. Prepare Data for Machine Learning. We need to convert the numbers into a format suitable for a Random Forest Classifier. Feature Engineering. We combine the 5 drawn numbers and 2 lucky stars into a single feature vector.
+4. Run the data preprocessing scripts:
    ```sh
-   python preprocess_data.py
+   spark-submit load_data.py # Read the CSV File in PySpark
+    
+   
    ```
 
 ## Running the Prediction Model
