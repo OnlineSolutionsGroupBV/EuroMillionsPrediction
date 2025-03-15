@@ -37,11 +37,7 @@ This project aims to predict potential EuroMillions winning number combinations 
 3. Ensure Spark is installed and configured correctly:
    ```sh
     pyspark
-..
-      version 3.5.5
-..
-
-```
+   ```
 
    If Spark is not installed, refer to [Apache Spark's installation guide](https://spark.apache.org/docs/latest/) for setup instructions.
 
