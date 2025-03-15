@@ -1,4 +1,4 @@
-# Euro Millions Prediction
+# Euromillion prediction
 EuroMillionsPrediction
 
 That’s my Saturday morning project—I’d like to explore different projects and frameworks to understand how they work, particularly in predicting certain numbers. This example is quite simple and fun, in my opinion, because if you manage to "hack" something like this, it could be highly profitable. For instance, the EuroMillions jackpot currently stands at 178 million euros.
