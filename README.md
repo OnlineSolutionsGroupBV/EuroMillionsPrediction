@@ -65,6 +65,9 @@ spark-submit train_model.py
 
 ```sh
 spark-submit predict.py
+or
+spark-submit predict_10unique.py
+
 ```
 This will train the ML model and generate predictions.
 
