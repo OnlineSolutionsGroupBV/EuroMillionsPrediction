@@ -21,33 +21,41 @@ This project aims to predict potential EuroMillions winning number combinations 
 ## Technologies Used
 - **Apache Spark (`pyspark`)**
 - **Python**
-- **Pandas, NumPy, and Matplotlib** for data analysis and visualization
-- **Scikit-learn** for additional ML techniques (optional)
-
-## Installation
-### Prerequisites
-Ensure you have the following installed:
-- **Python (>=3.8)**
-- **Apache Spark (>=3.0.0)**
-- **Java (>=8)**
-- **pip and virtual environment** (optional but recommended)
 
 ### Setup
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo/euromillions-prediction.git
-   cd euromillions-prediction
+    git clone git clone https://github.com/OnlineSolutionsGroupBV/EuroMillionsPrediction.git
+    cd EuroMillionsPrediction
    ```
 2. Create a virtual environment and install dependencies:
    ```sh
-   python -m venv venv
+   python3 -m venv venv
    source venv/bin/activate   # On Windows use: venv\Scripts\activate
-   pip install -r requirements.txt
+   pip3 install pyspark
    ```
 3. Ensure Spark is installed and configured correctly:
    ```sh
-   spark-submit --version
-   ```
+    pyspark
+
+Type "help", "copyright", "credits" or "license" for more information.
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+25/03/15 12:52:56 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 3.5.5
+      /_/
+
+Using Python version 3.9.6 (default, Feb  3 2024 15:58:28)
+Spark context Web UI available at http://mbp-van-sergej:4040
+Spark context available as 'sc' (master = local[*], app id = local-1742039577457).
+SparkSession available as 'spark'.
+
+
+    ```
    If Spark is not installed, refer to [Apache Spark's installation guide](https://spark.apache.org/docs/latest/) for setup instructions.
 
 ## Data Preparation
