@@ -1,4 +1,4 @@
-# Euro Millions Prediction
+# Euromillion prediction
 EuroMillionsPrediction
 
 That’s my Saturday morning project—I’d like to explore different projects and frameworks to understand how they work, particularly in predicting certain numbers. This example is quite simple and fun, in my opinion, because if you manage to "hack" something like this, it could be highly profitable. For instance, the EuroMillions jackpot currently stands at 178 million euros.
@@ -7,7 +7,7 @@ It's exciting to spend a Saturday studying different technologies and prediction
 
 Regarding Python, which of these examples would be the most suitable for calculating and predicting a EuroMillions winning combination, where 5 numbers are selected from 1 to 50 and 2 lucky stars from 1 to 12? 
 
-# EuroMillions Prediction Using Apache Spark
+# EuroMillion Prediction Using Apache Spark
 
 ## Overview
 This project aims to predict potential EuroMillions winning number combinations using Apache Spark's Machine Learning (ML) capabilities. The EuroMillions lottery consists of selecting 5 numbers from 1 to 50 and 2 lucky stars from 1 to 12. While the lottery is inherently random, this project attempts to identify patterns and trends using historical data and machine learning models.
@@ -37,41 +37,58 @@ This project aims to predict potential EuroMillions winning number combinations 
 3. Ensure Spark is installed and configured correctly:
    ```sh
     pyspark
+   ```
 
-Type "help", "copyright", "credits" or "license" for more information.
-Setting default log level to "WARN".
-To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-25/03/15 12:52:56 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-Welcome to
-      ____              __
-     / __/__  ___ _____/ /__
-    _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 3.5.5
-      /_/
-
-Using Python version 3.9.6 (default, Feb  3 2024 15:58:28)
-Spark context Web UI available at http://mbp-van-sergej:4040
-Spark context available as 'sc' (master = local[*], app id = local-1742039577457).
-SparkSession available as 'spark'.
-
-
-    ```
    If Spark is not installed, refer to [Apache Spark's installation guide](https://spark.apache.org/docs/latest/) for setup instructions.
 
 ## Data Preparation
 1. Obtain historical EuroMillions draw results from an official source or dataset.
-2. Save the dataset in a CSV file (`data/euromillions_history.csv`).
-3. Run the data preprocessing script:
+2. Save the dataset in a CSV file (`EuroMillionsData/euromillions-gamedata-NL-****.csv`).
+3. Prepare Data for Machine Learning. We need to convert the numbers into a format suitable for a Random Forest Classifier. Feature Engineering. We combine the 5 drawn numbers and 2 lucky stars into a single feature vector.
+4. Run the data preprocessing scripts:
    ```sh
-   python preprocess_data.py
+   spark-submit load_data.py # Read the CSV File in PySpark
+   spark-submit prepare_data.py
    ```
 
-## Running the Prediction Model
-To train and test the model, execute:
+**train_model.py (Train Multi-Output Random Forest Model)**  
+
+**Objective:**  
+- Train 7 separate models (one for each digit).  
+- Save all trained models.
+  
 ```sh
-spark-submit predict_numbers.py
+spark-submit train_model.py
+```
+
+## Running the Prediction Model
+
+```sh
+spark-submit predict.py
+or
+spark-submit predict_10unique.py
+
 ```
 This will train the ML model and generate predictions.
+
+**What’s Happening?**  
+The model is relying too much on the input values, causing its predictions to closely resemble the input. This could be due to overfitting or the model struggling to identify meaningful patterns in the historical lottery data.  
+
+### 🎯 What We Want  
+Instead of generating predictions that mirror the input, we want the model to independently produce a full prediction without being influenced by a predefined draw sequence.  
+
+### ✅ Solution: Predict Fully Random Numbers  
+Rather than using an existing draw as input, we can have the model generate predictions without any input.  
+
+### 🔹 Our Approach:  
+- Provide an empty input (zero values) and ask the model to generate a completely new set of numbers.  
+- This prevents the model from simply copying the input.  
+- The model will rely on underlying patterns in the dataset to create a more realistic combination.
+
+... 
+🎰 Voorspelde EuroMillions Nummers:
+🔢 Nummers: 4, 10, 13, 23, 43
+⭐ Sterren: 5, 9
 
 ## Example ML Models Used
 - **Logistic Regression**: Used for binary classification of number occurrences.
